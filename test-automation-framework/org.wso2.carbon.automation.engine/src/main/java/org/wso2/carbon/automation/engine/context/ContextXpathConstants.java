@@ -82,6 +82,10 @@ public class ContextXpathConstants {
     public static final String NON_BLOCKING_ENABLED = "nonBlockingTransportEnabled";
     public static final String WORKER = "worker";
     public static final String DEFAULT = "default";
+    public static final String SERVELET_HTTP = "servlet-http";
+    public static final String SERVELET_HTTPS = "servlet-https";
+    public static final String PASSTHROUGH_HTTP = "passthrough-http";
+    public static final String PASSTHROUGH_HTTPS = "passthrough-https";
     public static final String MANAGER = "manager";
     public static final String USERNAME = "userName";
     public static final String PASSWORD = "password";

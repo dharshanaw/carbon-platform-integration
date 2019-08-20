@@ -243,6 +243,10 @@
             <instance name="esbm001" type="manager" nonBlockingTransportEnabled="true">
                 <hosts>
                     <host type="default">localhost</host>
+                    <host type="servlet-http">localhost</host>
+                    <host type="servlet-https">localhost</host>
+                    <host type="passthrough-http">localhost</host>
+                    <host type="passthrough-https">localhost</host>
                 </hosts>
                 <ports>
                     <port type="http">9764</port>
