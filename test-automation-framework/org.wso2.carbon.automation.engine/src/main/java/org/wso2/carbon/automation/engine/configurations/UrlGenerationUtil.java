@@ -18,6 +18,8 @@
 
 package org.wso2.carbon.automation.engine.configurations;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.wso2.carbon.automation.engine.context.ContextXpathConstants;
 import org.wso2.carbon.automation.engine.context.InstanceType;
 import org.wso2.carbon.automation.engine.context.beans.Instance;
@@ -29,6 +31,7 @@ import javax.xml.xpath.XPathExpressionException;
  * This class generates the URL s according to the logic compiles with the assigned environment
  */
 public class UrlGenerationUtil {
+    static final Log log = LogFactory.getLog(UrlGenerationUtil.class);
 
     /**
      * give the backend URL for the provided instance
@@ -60,6 +63,7 @@ public class UrlGenerationUtil {
         } else {
             backendUrl = getServeletHttpsHost(instance);
         }
+        log.info("**************"+backendUrl);
         return backendUrl;
     }
 
@@ -154,6 +158,7 @@ public class UrlGenerationUtil {
                 serviceURL = protocol + "://" + hostName + "/" + "services/t/" + tenantDomain;
             }
         }
+        log.info("**********Service****"+serviceURL);
         return serviceURL;
     }
 
@@ -279,6 +284,7 @@ public class UrlGenerationUtil {
             String httpsPort = instance.getPorts().get(ContextXpathConstants.PRODUCT_GROUP_PORT_HTTPS);
             backendUrl = "https://" + hostName + ":" + httpsPort + "/" + "carbon/";
         }
+
         return backendUrl;
     }
 
