@@ -61,9 +61,9 @@ public class UrlGenerationUtil {
             String webContextRoot = instance.getProperty(ContextXpathConstants.PRODUCT_GROUP_WEBCONTEXT);
             backendUrl = "https://" + hostName + "/" + webContextRoot + "/" + "services/";
         } else {
-            backendUrl = getServeletHttpsHost(instance);
+            backendUrl = "https://" + getServeletHttpsHost(instance) + "/" + "services/";
         }
-        log.info("**************"+backendUrl);
+        log.info("**************" + backendUrl);
         return backendUrl;
     }
 
@@ -122,14 +122,14 @@ public class UrlGenerationUtil {
             } else {
                 if (protocol.equals(ContextXpathConstants.PRODUCT_GROUP_PORT_HTTPS)) {
                     if (getPassthroughHttpsHost(instance) != null) {
-                        serviceURL = getPassthroughHttpsHost(instance);
+                        serviceURL = protocol + "://" + getPassthroughHttpsHost(instance)+ "/" + "services";
                     } else {
                         serviceURL = protocol + "://" + hostName + "/" + "services";
                     }
                 }
                 if (protocol.equals(ContextXpathConstants.PRODUCT_GROUP_PORT_HTTP)) {
                     if (getPassthroughHttpsHost(instance) != null) {
-                        serviceURL = getPassthroughHttpHost(instance);
+                        serviceURL = protocol + "://" + getPassthroughHttpHost(instance)+ "/" + "services";
                     } else {
                         serviceURL = protocol + "://" + hostName + "/" + "services";
                     }
@@ -158,7 +158,7 @@ public class UrlGenerationUtil {
                 serviceURL = protocol + "://" + hostName + "/" + "services/t/" + tenantDomain;
             }
         }
-        log.info("**********Service****"+serviceURL);
+        log.info("**********Service****" + serviceURL);
         return serviceURL;
     }
 
